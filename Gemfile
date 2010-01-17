@@ -12,6 +12,8 @@ gem 'jrails'
 gem 'mongrel'
 gem 'git'
 gem 'resque'
+gem 'redis'
+gem 'sinatra'
 
 only :development do
   gem 'ruby-debug'
