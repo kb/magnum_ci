@@ -5,12 +5,12 @@ source 'http://gemcutter.org'
 source 'http://gems.github.com'
 
 gem 'rails', '2.3.5'
-gem 'will_paginate'
 gem 'jeremydurham-restful_authentication', '1.1.6', :require_as => 'restful_authentication'
 gem 'nokogiri'
-gem 'mongrel'
 gem 'sqlite3-ruby'
 gem 'jrails'
+gem 'mongrel'
+gem 'git'
 
 only :development do
   gem 'ruby-debug'
