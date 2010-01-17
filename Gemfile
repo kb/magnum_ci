@@ -11,6 +11,7 @@ gem 'sqlite3-ruby'
 gem 'jrails'
 gem 'mongrel'
 gem 'git'
+gem 'resque'
 
 only :development do
   gem 'ruby-debug'
