@@ -1,6 +1,7 @@
 An attempt to write a better CI server.
 
 To play around with resque...
+
 * start redis server --> redis-server /usr/local/etc/redis.conf
 * start a resque --> QUEUE=* rake environment resque:work (the splat can be replaced with any string value)
 * start rails --> script/server
