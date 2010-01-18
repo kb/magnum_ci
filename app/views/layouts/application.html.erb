@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Coderunner</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <%= stylesheet_link_tag 'application' %>
+    <!--[if IE]>
+    <link rel="stylesheet" href="/stylesheets/ie.css" type="text/css" media="screen">
+    <![endif]-->
+    <!--[if IE 6]>
+    <link rel="stylesheet" href="/stylesheets/ie6.css"  type="text/css" media="screen">
+    <![endif]-->
+    <!-- FIXME: Added event_calendar.js file back in -->
+    <%= javascript_include_tag :defaults, 'notification' %>    
+  </head>
+  <body>
+    <!-- header -->
+    <div id="header">
+      <div class="container">
+        <div id="branding_utility">
+          <%= link_to 'Coderunner', root_path, :id => 'branding' %>
+          <ul id="utility">
+          </ul>
+        </div>
+        <ul id="main_navigation">
+        </ul>  
+      </div>
+    </div>  
+    <!-- END header -->
+    <!-- container -->     
+    <div class="container">
+      <%= yield %>
+    </div>
+    <!-- END container -->
+    <div class="clear"></div>
+    <!-- footer -->
+    <div id="footer">
+      <div class="container">
+      </div>  
+    </div>
+    <!-- END footer -->
+    <div class="clear"></div>
+    <div id='notifications'>
+      <div class='notification-bar-container'>
+        <% if flash[:success] %>
+          <div class='notification-bar-bkg-message-success'>
+          </div>
+          <div class='notification-bar'>
+            <div class='notification-bar-contents'>
+              <div class='message message-success'>
+                <%= flash[:success] %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% if flash[:notice] %>
+          <div class='notification-bar-bkg-message-notice'>
+          </div>
+          <div class='notification-bar'>
+            <div class='notification-bar-contents'>
+              <div class='message message-notice'>
+                <%= flash[:notice] %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% if flash[:error] %>
+          <div class='notification-bar-bkg-message-error'>
+          </div>
+          <div class='notification-bar'>
+            <div class='notification-bar-contents'>
+              <div class='message message-error'>
+                <%= flash[:error] %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>
