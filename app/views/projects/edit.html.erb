@@ -1,0 +1,9 @@
+<% form_for @project do |f| %>
+  <fieldset class='project'>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <div class='buttons'>
+      <%= f.submit %>
+      <%= link_to 'Cancel', "/#{@project.name}" %>
+    </div>
+  </fieldset>
+<% end %>
