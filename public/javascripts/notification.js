@@ -1,5 +1,5 @@
 $(document).ready(function($){
-  GAMEDAY.notification_function = function() {
+  CODERUNNER.notification_function = function() {
     var NOTIFICATION_MESSAGE_CLOSE_DELAY = 3000;
 
     return {
@@ -23,7 +23,7 @@ $(document).ready(function($){
     }
   }
   
-  GAMEDAY.Notification = GAMEDAY.notification_function();
+  CODERUNNER.Notification = CODERUNNER.notification_function();
   
   var html = '';
   $('.notification-bar-container .message').each(function() {
@@ -31,6 +31,6 @@ $(document).ready(function($){
   });
 
   if (html != '') {
-			GAMEDAY.Notification.show();
+			CODERUNNER.Notification.show();
   }
 });
