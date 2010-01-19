@@ -1,0 +1,75 @@
+#notifications {
+  left:0;
+  overflow:visible;
+  position:fixed;
+  top:0;
+  width:100%;
+  display:none;
+  z-index:99999;
+}
+
+.notification-bar {
+  cursor:pointer;
+  left:0;
+  position:absolute;
+  top:0;
+  width:100%;
+}
+
+.notification-bar-bkg-message-success {
+  background: #aeffa8;
+	color: #066700;
+  opacity:0.95;
+  position:static;
+  height: 22px;
+  padding:1.2em 0;  
+}
+
+.notification-bar-bkg-message-notice {
+/*	background: #f6ffc7;*/ 
+	background: #aeffa8;
+  color: #414d00;
+  opacity:0.95;
+  position:static;
+  height: 22px;
+  padding:1.2em 0;  
+}
+
+.notification-bar-bkg-message-error {
+	background: #ffd5d5;
+	color: #640000;
+  opacity:0.95;
+  position:static;
+  height: 22px;
+  padding:1.2em 0;  
+}
+
+.notification-bar {
+  padding:1.2em 0;  
+}
+
+.ie7 .notification-bar, .ie7 .notification-bar-bkg {
+  border-bottom:2px solid #85afbe;
+}
+
+.notification-bar-container {
+  display:block;
+  overflow:visible;
+  position:relative;
+  width:100%;
+}
+
+.notification-bar-contents {
+  font-size:150%;
+  margin:0 auto;
+  position:relative;
+  text-align:left;
+  width:740px;
+}
+
+.notification-bar .message-progress {
+  background-position:left center;
+  background-repeat:no-repeat;
+  padding-left:24px;
+}
+
