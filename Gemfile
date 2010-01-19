@@ -16,6 +16,7 @@ gem 'json'
 
 only :development do
   gem 'ruby-debug'
+  gem 'annotate-models'
 end
 
 only :production do
