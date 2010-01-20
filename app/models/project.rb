@@ -15,4 +15,6 @@
 class Project < ActiveRecord::Base
   validates_presence_of :name, :repo_uri
   validates_uniqueness_of :name
+  
+  has_many :builds
 end
