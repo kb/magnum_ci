@@ -13,6 +13,7 @@ gem 'sqlite3-ruby', '1.2.5'
 gem 'jrails', '0.6.0'
 gem 'resque'
 gem 'json'
+gem 'grit', '2.0.0'
 
 only :development do
   gem 'ruby-debug'
