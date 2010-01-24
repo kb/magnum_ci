@@ -12,9 +12,13 @@
 #  updated_at :datetime
 #
 
-class Project < ActiveRecord::Base
-  validates_presence_of :name, :repo_uri
+class Project < ActiveRecord::Base  
+  validates_presence_of :name, :repo_uri, :branch, :script
   validates_uniqueness_of :name
   
   has_many :builds
+  
+  def run_build
+    RobinsNest.new(self.name, self.repo_uri, self.branch)
+  end
 end
