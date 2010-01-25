@@ -12,6 +12,8 @@ module NavigationHelpers
       '/'
     when /the new project page/
       new_project_path
+    when /the project show page for "(.*)"/
+      "/#{($1)}"
     # Add more mappings here.
     # Here is a more fancy example:
     #
