@@ -1,5 +1,5 @@
 Feature: Project
-  In order to view my coderunner projects
+  In order to view my Magnum CI projects
   As a person who dreams of seeing all green builds
   I want to see all my projects and their latest build status
   
@@ -11,6 +11,8 @@ Feature: Project
     And a project should exist with name: "Walter"
     And I should see "The Dude"
     And I should see "Walter"
-
-  
-  
+    
+  Scenario: New project action
+    Given I am on the home page
+    When I follow "New Project"
+    Then I should be on the new project page
