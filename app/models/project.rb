@@ -12,13 +12,15 @@
 #  updated_at :datetime
 #
 
-class Project < ActiveRecord::Base  
+class Project < ActiveRecord::Base
   validates_presence_of :name, :repo_uri, :branch, :script
   validates_uniqueness_of :name
   
   has_many :builds
   
   def run_build
-    RobinsNest.new(self.name, self.repo_uri, self.branch)
+    # This is temporary... It will be kicked onto a queue later on
+    nest = RobinsNest.new(self.name, self.repo_uri, self.branch)
+    nest.perform
   end
 end

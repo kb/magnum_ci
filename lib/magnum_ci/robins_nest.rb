@@ -6,7 +6,7 @@ module MagnumCI
       @branch = branch
     end
     
-    def process
+    def perform
       head
       clone
       branch

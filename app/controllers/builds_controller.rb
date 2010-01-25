@@ -9,12 +9,12 @@ class BuildsController < ApplicationController
     end
   end
   
+  # This will be the action the git post-receive hook will hit
   def new
-    # I know... @project.builds.build is odd... I couldn't think of a better name for the model. Suggestions?
-    @build = @project.builds.build
+    @project.run_build
     respond_to do |format|
-      format.html
-      format.xml { render :xml => @build }
+      format.html { render :nothing => true }
+      format.xml { render :nothing => true }
     end
   end
   
