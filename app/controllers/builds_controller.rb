@@ -9,7 +9,8 @@ class BuildsController < ApplicationController
     end
   end
   
-  # This will be the action the git post-receive hook will hit
+  # TODO: This will be the action the git post-receive hook will hit... should be a POST request though
+  # Hmmm... I'll have to think this through
   def new
     @project.run_build
     respond_to do |format|
