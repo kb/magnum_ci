@@ -11,4 +11,4 @@ To play around with resque and resque frontend... (This will be automated at som
 
 To kick off a build (just clones a git repo for now and isn't threaded yet) send a curl request to builds/new
 
-* Example... curl http://localhost:3000/<name of your project>/builds/new
+* Example... curl http://localhost:3000/::name of your project::/builds/new
