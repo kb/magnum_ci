@@ -14,6 +14,7 @@
 
 class Project < ActiveRecord::Base
   validates_presence_of :name, :repo_uri, :branch, :script
+  validates_format_of :name, :with => /^[A-Za-z\d_]+$/
   validates_uniqueness_of :name
   
   has_many :builds
