@@ -1,14 +1,3 @@
-require File.dirname(__FILE__) + '/../spec_helper'
-
-describe Project do
-  before(:each) do
-  end
-
-  it "should create a new instance given valid attributes" do
-    Project.create!(@valid_attributes)
-  end
-end
-
 # == Schema Information
 #
 # Table name: projects
@@ -23,3 +12,27 @@ end
 #  updated_at :datetime
 #
 
+require File.dirname(__FILE__) + '/../spec_helper'
+
+describe Project do
+  it "should create a new instance given valid attributes" do
+    lambda do
+      Project.create!(:name => 'test', :repo_uri => 'git://example.com:test.git', :branch => 'master', :script => 'rake test')
+    end.should change(Project, :count).by(1)
+  end
+  
+  it "should NOT create a new instance given invalid attributes" do
+    lambda do
+      Project.create()
+    end.should_not change(Project, :count)
+  end
+  
+  it "should create a new project with builds" do 
+    project = nil
+    lambda do
+      project = Project.make
+      project.builds << Build.make
+    end.should change(Build, :count).by(1)
+    project.should have(1).build
+  end
+end
