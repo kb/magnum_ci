@@ -4,12 +4,12 @@ Feature: Project
   In order to be happy and drive Robin Masters' Ferrari 308 GTS around Hawaii
   
   Scenario: View project index page ---> root path
-    Given a project exists with name: "The Dude"
+    Given a project exists with name: "The_Dude"
     And another project exists with name: "Walter"
     When I am on the home page
-    Then a project should exist with name: "The Dude"
+    Then a project should exist with name: "The_Dude"
     And a project should exist with name: "Walter"
-    And I should see "The Dude"
+    And I should see "The_Dude"
     And I should see "Walter"
     
   Scenario: New project action
