@@ -20,8 +20,10 @@ class Project < ActiveRecord::Base
   has_many :builds
   
   def run_build
-    # This is temporary... It will be kicked onto a queue later on
-    nest = RobinsNest.new(self.name, self.repo_uri, self.branch)
-    nest.perform
+    # This is a bit unorthadox, however resque stores items as json objects.
+    # Meaning we need to pass an id, instead of an object
+    build = Build.create!
+    self.builds << build
+    Resque.enqueue(MoustacheRide, build.id, self.name, self.repo_uri, self.branch, self.script)
   end
 end
