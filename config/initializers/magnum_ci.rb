@@ -1,4 +1,4 @@
-require 'magnum_ci/moustache_ride'
+require 'magnum_ci/mustache_ride'
 include MagnumCI
 
 require 'grit'

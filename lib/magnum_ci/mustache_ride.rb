@@ -1,11 +1,11 @@
 module MagnumCI
-  module MoustacheRide
+  module MustacheRide
     @queue = :build
     class << self
       def perform(build_id, project, repo_uri, branch, script)
         @build = Build.find(build_id)
-        MoustacheRide.clone(project, repo_uri, branch)
-        MoustacheRide.build(script)
+        MustacheRide.clone(project, repo_uri, branch)
+        MustacheRide.build(script)
       end
     
       # TODO: Is this possible to use Grit instead of shelling out here?

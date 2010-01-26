@@ -24,6 +24,6 @@ class Project < ActiveRecord::Base
     # Meaning we need to pass an id, instead of an object
     build = Build.create!
     self.builds << build
-    Resque.enqueue(MoustacheRide, build.id, self.name, self.repo_uri, self.branch, self.script)
+    Resque.enqueue(MustacheRide, build.id, self.name, self.repo_uri, self.branch, self.script)
   end
 end
