@@ -2,7 +2,7 @@ An attempt to write a better CI server.
 
 This will be automated at some point, but for now do the following...
 
-So far the a worker is queued up and the project repo cloned to its own folder under /builds/::name of a project in magnum ci::/::last commit bit::
+So far the build is queued up and the project repo is cloned to its own folder under /builds/::name of a project in magnum ci::/::last commit bit::
 
 * start the redis server --> redis-server /usr/local/etc/redis.conf
 * start resque --> QUEUE=* rake environment resque:work (the splat can be replaced with any string value)
