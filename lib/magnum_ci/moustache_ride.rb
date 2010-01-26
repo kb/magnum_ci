@@ -1,15 +1,17 @@
+require 'systemu'
+
 module MagnumCI
   module MoustacheRide
     @queue = :build
     
-    def perform(build_id, project, repo_uri, branch, script)
+    def self.perform(build_id, project, repo_uri, branch, script)
       @build = Build.find(build_id)
-      clone(project, repo_uri, branch)
-      build(script)
+      MoustacheRide.clone(project, repo_uri, branch)
+      MoustacheRide.build(script)
     end
     
     # TODO: Is this possible to use Grit instead of shelling out here?
-    def clone(project, repo_uri, branch)
+    def self.clone(project, repo_uri, branch)
       # Grab the latest commit bit
       head = `git ls-remote --heads #{repo_uri} #{branch} | cut -f1`.chomp
       
@@ -19,11 +21,10 @@ module MagnumCI
       `git clone "#{repo_uri}" "#{RAILS_ROOT}/builds/#{project}/#{head}"`
     end
     
-    def build(script)
-      status, stdout, stderr = systemu Rake::Task[script].invoke
-      puts status
-      puts stdout
-      puts stderr
+    def self.build(script)
+      status, stdout, stderr = systemu `#{script}`
+      @build.log = stdout
+      @build.save
     end
   end
 end
