@@ -44,6 +44,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id.:format'
   map.connect '/:project', :controller => 'projects', :action => 'show'
   map.connect '/:project/edit', :controller => 'projects', :action => 'edit'
-  map.connect '/:project/builds/new', :controller => 'builds', :action => 'new'
+  map.connect '/:project/build', :controller => 'projects', :action => 'build'
   map.connect '/:project/builds/:id', :controller => 'builds', :action => 'show'
 end

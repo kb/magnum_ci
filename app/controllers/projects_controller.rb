@@ -65,4 +65,9 @@ class ProjectsController < ApplicationController
     flash[:notice] = "Successfully destroyed project."
     redirect_to(projects_path)
   end
+  
+  def build
+    Project.find_by_name(params[:project]).run_build
+    render :nothing => true
+  end
 end
