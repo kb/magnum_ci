@@ -15,6 +15,7 @@ gem 'resque'
 gem 'json'
 gem 'grit', '2.0.0'
 gem 'systemu', '1.2.0'
+gem 'RedCloth','4.2.2'
 
 only :development do
   gem 'ruby-debug'
