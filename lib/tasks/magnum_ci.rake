@@ -13,7 +13,7 @@ namespace :magnum_ci do
   end
 
   Cucumber::Rake::Task.new(:features) do |t|
-    t.cucumber_opts = "-p default --format html"
+    t.cucumber_opts = "-p default --format progress -q"
   end
 
   Cucumber::Rake::Task.new(:selenium_features) do |t|
