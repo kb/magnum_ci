@@ -5,6 +5,7 @@
 #
 #  id         :integer         not null, primary key
 #  project_id :integer
+#  name       :string(255)
 #  log        :text
 #  passed     :boolean
 #  created_at :datetime
