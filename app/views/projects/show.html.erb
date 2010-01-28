@@ -1,2 +1,5 @@
 <%= @project.name %>
 <%= link_to "edit", "/#{@project.name}/edit" %>
+<ul>
+  <%= render :partial => "build", :collection => @project.builds %>
+</ul>
