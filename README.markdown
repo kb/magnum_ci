@@ -2,10 +2,9 @@ An attempt to write a better CI server.
 
 This will be automated at some point, but for now do the following...
 
-So far the build is queued up and the project repo is cloned to its own folder under /builds/::name of a project in magnum ci::/::last commit bit::
-
 * start the redis server --> redis-server /usr/local/etc/redis.conf
-* start resque --> QUEUE=* rake environment resque:work (the splat can be replaced with any string value)
+* start build resque --> QUEUE=build rake environment resque:work
+* start clone resque --> QUEUE=clone rake environment resque:work
 * start the app --> script/server
 * send a curl request ---> curl http://localhost:3000/::project name::/build
-* start resque front-end ---> resque-web (localhost:8282)
+* start resque front-end ---> resque-web

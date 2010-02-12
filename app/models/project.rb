@@ -19,11 +19,18 @@ class Project < ActiveRecord::Base
   
   has_many :builds
   
+  after_create :create_build_dir
+  
   def run_build
     # This is a bit unorthadox, however resque stores items as json objects.
     # Meaning we need to pass an id, instead of an object
     build = Build.create!
     self.builds << build
-    Resque.enqueue(MustacheRide, build.id, self.name, self.repo_uri, self.branch, self.script)
+    Resque.enqueue(RobinsNest, build.id)
+  end
+
+  private
+  def create_build_dir
+    Dir.mkdir "#{RAILS_ROOT}/builds/#{self.name}" unless File.exist? "#{RAILS_ROOT}/builds/#{self.name}"
   end
 end
