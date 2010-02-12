@@ -1,5 +1,5 @@
 clear_sources
-#disable_system_gems
+disable_system_gems
 
 source 'http://gemcutter.org'
 source 'http://gems.github.com'
