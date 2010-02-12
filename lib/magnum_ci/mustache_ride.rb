@@ -14,14 +14,6 @@ module MagnumCI
         @build.log = RedCloth.new(@stdout).to_html
         @build.save
       end
-
-      def pre_bundler_path
-        ENV['PATH'] && ENV["PATH"].split(":").reject { |path| path.include?("vendor") }.join(":")
-      end
-
-      def pre_bundler_rubyopt
-        ENV['RUBYOPT'] && ENV["RUBYOPT"].split.reject { |opt| opt.include?("vendor") }.join(" ")
-      end
     end
   end
 end
