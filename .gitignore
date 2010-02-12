@@ -18,3 +18,5 @@ spec/fixtures/*
 bin/*
 vendor/bundled_gems/*
 builds/*
+.emacs.desktop
+.emacs.desktop.lock
