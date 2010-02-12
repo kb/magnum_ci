@@ -17,5 +17,6 @@ namespace :setup do
       FileUtils.cp example, "#{RAILS_ROOT}/config/database.yml"
     end
     Rake::Task['setup:reset'].invoke
+    `gem bundle`
   end
 end
