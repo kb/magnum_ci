@@ -4,7 +4,9 @@ module MagnumCI
     class << self
       def perform(build_id)
         @build = Build.find(build_id)
+        @build.run_build!
         MustacheRide.build
+        @build.complete_build!
       end
     
       def build

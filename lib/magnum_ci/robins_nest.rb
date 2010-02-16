@@ -4,8 +4,10 @@ module MagnumCI
     class << self
       def perform(build_id)
         @build = Build.find(build_id)
+        @build.clone!
         RobinsNest.head
         RobinsNest.clone
+        @build.queue_build!
         Resque.enqueue(MustacheRide, @build.id)
       end
     
