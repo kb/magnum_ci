@@ -67,7 +67,9 @@ class ProjectsController < ApplicationController
   end
   
   def build
-    Project.find_by_name(params[:project]).run_build
-    render :nothing => true
+    @project = Project.find_by_name(params[:payload][:repository][:name]).run_build
+    respond_to do |format|
+      format.json { render :json => 'Magnum C.I. is on the job' }
+    end
   end
 end
