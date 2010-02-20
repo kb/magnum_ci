@@ -1,1 +1,8 @@
-<li><%= link_to project.name, "/#{project.name}" %></li>
+<li>
+  <div>
+    <%= link_to project.name, "/#{ project.name }" %>
+    <p>--Build Time--</p>
+    <p>--Committer Name--</p>
+  </div>
+  <%= image_tag last_build_state(project) %>
+</li>

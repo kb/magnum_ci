@@ -1,2 +1,12 @@
-<p><%= @build.log %></p>
-<p><%= @build.passed %></p>
+<ul>
+  <li>
+    <div>
+      <h2><%= @build.name %></h2>
+      <p>--Build Time--</p>
+      <p>--Committer Name--</p>
+      <p>--Commit Message--</p>
+    </div>
+    <%= image_tag build_state(@build) %>
+  </li>
+</ul>
+<div id='build_output'><%= @build.log %></div>

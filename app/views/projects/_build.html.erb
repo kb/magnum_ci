@@ -1,1 +1,8 @@
-<li><%= link_to build.name, "/#{@project.name}/builds/#{build.id}" %></li>
+<li>
+  <div>
+    <%= link_to truncate(build.name, :length => 25), "/#{@project.name}/builds/#{build.id}" %>
+    <p>--Build Time--</p>
+    <p>--Committer Name--</p>
+  </div>
+  <%= image_tag build_state(build) %>
+</li>

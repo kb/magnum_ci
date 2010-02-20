@@ -1,5 +1,5 @@
-<%= @project.name %>
-<%= link_to "edit", "/#{@project.name}/edit" %>
+<%= link_to "Edit Project", "/#{@project.name}/edit" %>
 <ul>
-  <%= render :partial => "build", :collection => @project.builds %>
+  <li id='project_name'><h1><%= @project.name %></h1></li>
+  <%= render :partial => "build", :collection => @project.builds.reverse %>
 </ul>

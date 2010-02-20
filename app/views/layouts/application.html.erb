@@ -3,7 +3,7 @@
   <head>
     <title>Magnum C.I.</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <%= stylesheet_link_tag 'application', 'notification' %>
+    <%= stylesheet_link_tag 'screen', 'notification' %>
     <!--[if IE]>
     <link rel="stylesheet" href="/stylesheets/ie.css" type="text/css" media="screen">
     <![endif]-->
@@ -14,32 +14,14 @@
     <%= javascript_include_tag :defaults, 'notification' %>    
   </head>
   <body>
-    <!-- header -->
-    <div id="header">
-      <div class="container">
-        <div id="branding_utility">
-          <%= link_to 'Magnum C.I.', root_path, :id => 'branding' %>
-          <ul id="utility">
-          </ul>
-        </div>
-        <ul id="main_navigation">
-        </ul>  
+    <div id="container">
+      <%= link_to 'Magnum C.I.', root_path, :id => 'branding' %>
+      <div id="content">
+        <%= yield %>
       </div>
-    </div>  
-    <!-- END header -->
-    <!-- container -->     
-    <div class="container">
-      <%= yield %>
     </div>
-    <!-- END container -->
-    <div class="clear"></div>
-    <!-- footer -->
-    <div id="footer">
-      <div class="container">
-      </div>  
-    </div>
-    <!-- END footer -->
-    <div class="clear"></div>
+    <div id="container_bottom"></div>
+    <div class="clearfix"></div>
     <div id='notifications'>
       <div class='notification-bar-container'>
         <% if flash[:success] %>

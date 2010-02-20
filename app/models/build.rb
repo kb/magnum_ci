@@ -41,4 +41,8 @@ class Build < ActiveRecord::Base
   aasm_event :complete_build do
     transitions :to => :built, :from => [:building]
   end
+
+  def passed?
+    self.passed ? true : false
+  end
 end
