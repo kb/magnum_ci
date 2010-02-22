@@ -8,7 +8,7 @@ namespace :magnum_ci do
     Rake::Task['log:clear'].invoke
     Rake::Task['setup:app'].invoke
     Rake::Task['spec'].invoke
-    Rake::Task['magnum_ci:features'].invoke
+    # Rake::Task['magnum_ci:features'].invoke
     # Rake::Task['magnum_ci:selenium_features'].invoke
   end
 
