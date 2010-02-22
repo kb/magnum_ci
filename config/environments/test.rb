@@ -28,4 +28,4 @@ config.action_mailer.delivery_method = :test
 # config.active_record.schema_format = :sql
 
 # Load bundle for this environment
-Bundler.require_env RAILS_ENV
+#Bundler.require_env RAILS_ENV

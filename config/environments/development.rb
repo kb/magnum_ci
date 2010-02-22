@@ -17,4 +17,4 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 # Load bundle for this environment
-Bundler.require_env RAILS_ENV
+#Bundler.require_env RAILS_ENV

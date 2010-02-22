@@ -28,4 +28,4 @@ config.action_view.cache_template_loading            = true
 # config.threadsafe!
 
 # Load bundle for this environment
-Bundler.require_env RAILS_ENV
+#Bundler.require_env RAILS_ENV
