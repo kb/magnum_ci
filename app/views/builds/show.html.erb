@@ -2,9 +2,8 @@
   <li>
     <div>
       <h2><%= @build.name %></h2>
-      <p>--Build Time--</p>
-      <p>--Committer Name--</p>
-      <p>--Commit Message--</p>
+      <p>Date: <%= @build.created_at.strftime("%D") %></p>
+      <p>Committer: <%= @build.committer %></p>
     </div>
     <%= image_tag build_state(@build) %>
   </li>

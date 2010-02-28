@@ -5,19 +5,21 @@ module MagnumCI
       def perform(build_id)
         @build = Build.find(build_id)
         @build.clone!
-        RobinsNest.head
         RobinsNest.clone
+        RobinsNest.repo_data
         @build.queue_build!
         Resque.enqueue(MustacheRide, @build.id)
-      end
-    
-      def head
-        @build.name = `git ls-remote --heads #{@build.project.repo_uri} #{@build.project.branch} | cut -f1`.chomp
-        @build.save
       end
 
       def clone
         `git clone "#{@build.project.repo_uri}" "#{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id}"`
+      end    
+
+      def repo_data
+        repo = Repo.new("#{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id}")
+        @build.name = repo.commits.first.id
+        @build.committer = repo.commits.first.committer.name
+        @build.save
       end
     end
   end
