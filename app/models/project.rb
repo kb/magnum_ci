@@ -13,9 +13,10 @@
 #
 
 class Project < ActiveRecord::Base
-  validates_presence_of :name, :repo_uri, :branch, :script, :message => "cannot be blank"
+  validates_presence_of :name, :repo_uri, :branch, :script, :keep_build_number, :message => "cannot be blank"
   validates_format_of :name, :branch, :with => /^[A-Za-z\d_]+$/, :message => "cannot contain spaces"
   validates_uniqueness_of :name
+  validates_numericality_of :keep_build_number
   
   has_many :builds
   
