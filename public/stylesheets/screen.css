@@ -205,3 +205,12 @@ a {
   font-size: 1.2em;
   margin: 5px 0 5px 0;
 }
+
+#content #errorExplanation ul li {
+  background-color: #EBEDF0;
+  border: none;
+  height: 15px;
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+}
