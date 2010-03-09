@@ -7,6 +7,7 @@
 #  project_id :integer
 #  name       :string(50)
 #  state      :string(50)
+#  committer  :string(50)
 #  log        :text
 #  passed     :boolean
 #  created_at :datetime
@@ -44,5 +45,9 @@ class Build < ActiveRecord::Base
 
   def passed?
     self.passed ? true : false
+  end
+
+  def delete_build
+    Resque.enqueue(MagnumCI::ZeusAndApollo, self.id)
   end
 end

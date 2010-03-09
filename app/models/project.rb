@@ -1,15 +1,16 @@
 # == Schema Information
-# Schema version: 20100118221722
+# Schema version: 20100120025709
 #
 # Table name: projects
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  repo_uri   :string(255)
-#  branch     :string(255)
-#  script     :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id                :integer         not null, primary key
+#  name              :string(255)
+#  repo_uri          :string(255)
+#  branch            :string(255)
+#  script            :string(255)
+#  keep_build_number :integer(2)
+#  created_at        :datetime
+#  updated_at        :datetime
 #
 
 class Project < ActiveRecord::Base
@@ -28,6 +29,9 @@ class Project < ActiveRecord::Base
     build = Build.create!
     self.builds << build
     Resque.enqueue(MagnumCI::RobinsNest, build.id)
+    if self.builds.size > keep_build_number
+      self.builds.first.delete_build
+    end
   end
 
   private
