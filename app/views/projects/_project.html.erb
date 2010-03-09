@@ -1,8 +1,10 @@
 <li>
   <div>
     <%= link_to project.name, "/#{ project.name }" %>
-    <p>Date: <%= project.builds.last.created_at.strftime("%D") %></p>
-    <p>Committer: <%= project.builds.last.committer %></p>
+    <%- unless project.builds.empty? -%>
+      <p>Date: <%= project.builds.last.created_at.strftime("%D") %></p>
+      <p>Committer: <%= project.builds.last.committer %></p>
+    <%- end -%>
   </div>
   <%= image_tag last_build_state(project) %>
 </li>
