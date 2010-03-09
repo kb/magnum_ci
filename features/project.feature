@@ -23,6 +23,7 @@ Feature: Project
     And I fill in "Repository Location" with "git://example.com:the_dude.git"
     And I fill in "Branch" with "master"
     And I fill in "Script" with "rake test"
+    And I fill in "Number of builds to keep?" with "15"
     And I press "Save Changes"
     Then I should be on the project show page for "The_Dude"
     And I should see "The_Dude"

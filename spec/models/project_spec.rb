@@ -17,7 +17,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Project do
   it "should create a new instance given valid attributes" do
     lambda do
-      Project.create!(:name => 'test', :repo_uri => 'git://example.com:test.git', :branch => 'master', :script => 'rake test')
+      Project.create!(:name => 'test', :repo_uri => 'git://example.com:test.git', :branch => 'master', :script => 'rake test', :keep_build_number => 15)
     end.should change(Project, :count).by(1)
   end
   
