@@ -8,7 +8,7 @@ module MagnumCI
         RobinsNest.clone
         RobinsNest.repo_data
         @build.queue_build!
-        Resque.enqueue(MustacheRide, @build.id)
+        Resque.enqueue(MagnumCI::MustacheRide, @build.id)
       end
 
       def clone

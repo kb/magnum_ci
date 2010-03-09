@@ -27,7 +27,7 @@ class Project < ActiveRecord::Base
     # Meaning we need to pass an id, instead of an object
     build = Build.create!
     self.builds << build
-    Resque.enqueue(RobinsNest, build.id)
+    Resque.enqueue(MagnumCI::RobinsNest, build.id)
   end
 
   private
