@@ -9,6 +9,6 @@ namespace :magnum_ci do
     Rake::Task['setup:app'].invoke
     Rake::Task['spec'].invoke
     `bundle exec cucumber -p default --format progress -q features`
-    `bundle exec cucumber -p selenium --format progress -q features`
+    #`bundle exec cucumber -p selenium --format progress -q features`
   end
 end
