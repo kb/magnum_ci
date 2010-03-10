@@ -29,8 +29,8 @@ class Project < ActiveRecord::Base
     build = Build.create!
     self.builds << build
     Resque.enqueue(MagnumCI::RobinsNest, build.id)
-    if self.builds.size > keep_build_number
-      self.builds.first.delete_build
+    (self.builds.size - keep_build_number).times.each do |i|
+        self.builds[i].delete_build
     end
   end
 
