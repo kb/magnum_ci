@@ -47,6 +47,10 @@ class Build < ActiveRecord::Base
     self.passed ? true : false
   end
 
+  def pass_fail
+    self.passed? ? "passed" : "failed"
+  end
+
   def delete_build
     Resque.enqueue(MagnumCI::ZeusAndApollo, self.id)
   end

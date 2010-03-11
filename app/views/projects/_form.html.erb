@@ -21,4 +21,24 @@
   <%= f.label :script, "Script" %>
   <%= f.text_area :script %>
 </p>
+<p>
+  <%= f.check_box :campfire, :class => 'checkbox' %>
+  <%= f.label :campfire, "Campfire Notifications", :class => 'checkbox' %>
+</p>
+<p>
+  <%= f.label :room, "Room" %>
+  <%= f.text_field :room %>
+</p>
+<p>
+  <%= f.label :account, "Account (subdomain)" %>
+  <%= f.text_field :account %>
+</p>
+<p>
+  <%= f.label :token, "API Token" %>
+  <%= f.text_field :token %>
+</p>
+<p>
+  <%= f.check_box :ssl, :class => 'checkbox' %>
+  <%= f.label :ssl, "SSL?", :class => 'checkbox' %>
+</p>
 

@@ -10,8 +10,9 @@ gem 'jrails', '0.6.0'
 gem 'resque', '1.5.0'
 gem 'json', '1.2.2'
 gem 'grit', '2.0.0'
-gem 'RedCloth'
+gem 'RedCloth', '4.2.3'
 gem 'aasm', '2.1.5'
+gem 'broach', '0.1.4'
 
 group :development do
   gem 'ruby-debug'   

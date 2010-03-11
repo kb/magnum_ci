@@ -7,6 +7,7 @@ module MagnumCI
         @build.run_build!
         MustacheRide.build
         @build.complete_build!
+        MustacheRide.notify
       end
     
       def build
@@ -15,6 +16,13 @@ module MagnumCI
         @build.passed = true if $?.to_i == 0
         @build.log = RedCloth.new(@stdout).to_html
         @build.save
+      end
+
+      def notify
+        if @build.project.campfire
+          Broach.settings = @build.project.campfire_settings
+          Broach.speak(@build.project.room, "Commit " + @build.name + " pushed by " + @build.committer + " " + @build.pass_fail)
+        end
       end
     end
   end

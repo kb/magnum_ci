@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100120025709
+# Schema version: 20100311015006
 #
 # Table name: projects
 #
@@ -8,9 +8,14 @@
 #  repo_uri          :string(255)
 #  branch            :string(255)
 #  script            :string(255)
-#  keep_build_number :integer(2)
+#  keep_build_number :integer
 #  created_at        :datetime
 #  updated_at        :datetime
+#  campfire          :boolean
+#  account           :string(255)
+#  token             :string(255)
+#  ssl               :boolean
+#  room              :string(255)
 #
 
 class Project < ActiveRecord::Base
@@ -32,6 +37,10 @@ class Project < ActiveRecord::Base
     (self.builds.size - keep_build_number).times.each do |i|
         self.builds[i].delete_build
     end
+  end
+
+  def campfire_settings
+    { 'account' => self.account, 'token' => self.token, 'use_ssl' => self.ssl }
   end
 
   private
