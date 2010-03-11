@@ -169,6 +169,13 @@ a {
   margin: 0 0 5px 0;
 }
 
+#content form textarea {
+  width: 618px;
+  height: 250px;
+  font-size: 2.5em;
+  margin: 0 0 5px 0;
+}
+
 #content form .buttons {
   text-align: center;
   margin: 5px 0 0 0;
