@@ -21,7 +21,7 @@ module MagnumCI
       def notify
         if @build.project.campfire
           Broach.settings = @build.project.campfire_settings
-          Broach.speak(@build.project.room, "Commit " + @build.name + " pushed by " + @build.committer + " " + @build.pass_fail)
+          Broach.speak(@build.project.room, "Commit " + @build.name + " pushed by " + @build.committer + " " + @build.pass_fail + " " +  "#{APP_CONFIG[:site][:address]}/#{@build.project.name}/builds/#{build.id}")
         end
       end
     end
