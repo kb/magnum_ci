@@ -11,7 +11,6 @@ module MagnumCI
       end
     
       def build
-        # script = "env - bash --login -c 'cd #{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id} && #{@build.project.script}'"
         script = "cd #{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id} && #{@build.project.script}"
         IO.popen(script, "r") { |io| @build.log = io.read }
         @build.passed = true if $?.to_i == 0
@@ -26,4 +25,4 @@ module MagnumCI
       end
     end
   end
-end(
+end
