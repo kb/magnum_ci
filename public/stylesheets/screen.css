@@ -102,6 +102,34 @@ br {
   border: 1px solid #E6E6E6;
 }
 
+#content #build_output .color31 {
+  color: #FF0000;
+}
+
+#content #build_output .color32 {
+  color: #00FF00;
+}
+
+#content #build_output .color33 {
+  color: #FFFF00;
+}
+
+#content #build_output .color34 {
+  color: #0000FF;
+}
+
+#content #build_output .color35 {
+  color: #842DCE;
+}
+
+#content #build_output .color36 {
+  color: #00FFFF;
+}
+
+#content #build_output .color37 {
+  color: #FFFFFF;
+}
+
 /* --- lists */
 #content ul {
   margin: 10px 0 10px 0;

@@ -12,9 +12,8 @@ module MagnumCI
     
       def build
         script = "env - bash --login -c 'cd #{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id} && #{@build.project.script}'"
-        IO.popen(script, "r") { |io| @stdout = io.read }
+        IO.popen(script, "r") { |io| @build.log = io.read }
         @build.passed = true if $?.to_i == 0
-        @build.log = RedCloth.new(@stdout).to_html
         @build.save
       end
 
@@ -26,4 +25,4 @@ module MagnumCI
       end
     end
   end
-end
+end(

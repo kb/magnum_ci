@@ -8,4 +8,4 @@
     <%= image_tag build_state(@build) %>
   </li>
 </ul>
-<div id='build_output'><%= @build.log %></div>
+<div id='build_output'><%= pretty_print_log(@build.log) %></div>
