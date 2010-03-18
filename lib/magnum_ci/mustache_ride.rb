@@ -11,7 +11,7 @@ module MagnumCI
       end
     
       def build
-        script = "cd #{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id} && #{@build.project.script}"
+        script = "(cd #{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id} && #{@build.project.script} 2>&1)"
         IO.popen(script, "r") { |io| @build.log = io.read }
         @build.passed = true if $?.to_i == 0
         @build.save
