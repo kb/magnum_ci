@@ -48,7 +48,7 @@ class Build < ActiveRecord::Base
   end
 
   def pass_fail
-    self.passed? ? "passed" : "failed"
+    self.passed? ? "PASSED" : "FAILED"
   end
 
   def delete_build
