@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'projects'
   
   # URL for the post-recieve hook
-  map.connect '/build.:format', :controller => 'projects', :action => 'build', :conditions => { :method => :post }   
+  map.build '/build.:format', :controller => 'projects', :action => 'build', :conditions => { :method => :post }   
 
   # Avoid resource generated routes for some pretty-urls
   map.connect '/:project', :controller => 'projects', :action => 'show'

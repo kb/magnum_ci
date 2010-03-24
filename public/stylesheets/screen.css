@@ -132,7 +132,7 @@ br {
 
 /* --- lists */
 #content ul {
-  margin: 10px 0 10px 0;
+  margin: 20px 0 20px 0;
 }
 
 #content ul li {
@@ -190,6 +190,13 @@ a {
 
 #content a#new_project_link {
   padding: 3px;
+}
+
+#content #build_button {
+  float: right;
+  font-size: 1.3em;
+  height: 29px;
+  width: 100px;
 }
 
 /* --- forms */
