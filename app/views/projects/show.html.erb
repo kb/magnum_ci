@@ -1,4 +1,6 @@
-<%= link_to "Edit Project", "/#{@project.name}/edit" %>
+<%= link_to "Edit", "/#{@project.name}/edit" %>
+OR
+<%= link_to "Delete", project_path(@project), :confirm => "Are you sure?", :method => :delete %>
 <ul>
   <li id='project_name'><h1><%= @project.name %></h1></li>
   <%= render :partial => "build", :collection => @project.builds.reverse %>

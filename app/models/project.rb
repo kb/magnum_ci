@@ -24,9 +24,10 @@ class Project < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_numericality_of :keep_build_number
   
-  has_many :builds
+  has_many :builds, :dependent => :destroy
   
   after_create :create_build_dir
+  before_destroy :rm_build_dir
   
   def run_build
     # This is a bit unorthadox, however resque stores items as json objects.
@@ -46,5 +47,9 @@ class Project < ActiveRecord::Base
   private
   def create_build_dir
     Dir.mkdir "#{RAILS_ROOT}/builds/#{self.name}" unless File.exist? "#{RAILS_ROOT}/builds/#{self.name}"
+  end
+
+  def rm_build_dir
+    FileUtils.rm_rf("#{RAILS_ROOT}/builds/#{self.name}")
   end
 end
