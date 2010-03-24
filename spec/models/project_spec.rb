@@ -19,6 +19,7 @@ describe Project do
     lambda do
       Project.create!(:name => 'test', :repo_uri => 'git://example.com:test.git', :branch => 'master', :script => 'rake test', :keep_build_number => 15)
     end.should change(Project, :count).by(1)
+    FileUtils.rm_rf("#{RAILS_ROOT}/builds/test")
   end
   
   it "should NOT create a new instance given invalid attributes" do
@@ -34,5 +35,6 @@ describe Project do
       project.builds << Build.make
     end.should change(Build, :count).by(1)
     project.should have(1).build
+    FileUtils.rm_rf("#{RAILS_ROOT}/builds/#{project.name}")
   end
 end
