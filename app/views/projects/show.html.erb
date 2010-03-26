@@ -3,6 +3,6 @@
 OR
 <%= link_to "Delete Project", project_path(@project), :confirm => "Are you sure?", :method => :delete %>
 <ul>
-  <li id='project_name'><h1><%= @project.name %></h1></li>
+  <li id='project_name'><h1><%= @project.name.titleize %></h1></li>
   <%= render :partial => "build", :collection => @project.builds.reverse %>
 </ul>

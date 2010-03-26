@@ -1,6 +1,7 @@
 <ul>
   <li>
     <div>
+      <h2><%= @build.project.name.titleize %></h2>
       <h2><%= @build.name %></h2>
       <p>Date: <%= @build.created_at.strftime("%D") %></p>
       <p>Committer: <%= @build.committer %></p>
