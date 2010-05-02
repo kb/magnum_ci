@@ -1,10 +1,7 @@
 <li>
-  <div>
-    <%= link_to project.name.titleize, "/#{ project.name }" %>
-    <%- unless project.builds.empty? -%>
-      <p>Date: <%= project.builds.last.created_at.strftime("%D") %></p>
-      <p>Committer: <%= project.builds.last.committer %></p>
-    <%- end -%>
+  <h1><%= link_to project.name.titleize, "/#{ project.name }", :class => "project_name" %></h1>
+  <div id="build_statuses">
+    <%= build_statuses(project) %>
   </div>
-  <%= image_tag last_build_state(project) %>
 </li>
+<div></div>

@@ -1,8 +1,11 @@
 <li>
+  <%= image_tag build_state(build), :class => "status" %>
   <div>
-    <%= link_to truncate(build.name, :length => 25), "/#{@project.name}/builds/#{build.id}" %>
-    <p>Date: <%= build.created_at.strftime("%D") %></p>
-    <p>Committer: <%= build.committer %></p>
+    <h2><%= link_to build.name, "/#{@project.name}/builds/#{build.id}" %></h2>
+    <p>
+      <%= build.committer %> - <%= build.pretty_date %>
+      <br/>
+      <%= build.message %>
+    </p>
   </div>
-  <%= image_tag build_state(build) %>
 </li>

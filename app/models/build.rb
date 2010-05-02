@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100120025709
+# Schema version: 20100326014550
 #
 # Table name: builds
 #
@@ -12,6 +12,7 @@
 #  passed     :boolean
 #  created_at :datetime
 #  updated_at :datetime
+#  message    :text
 #
 
 class Build < ActiveRecord::Base
@@ -53,5 +54,16 @@ class Build < ActiveRecord::Base
 
   def delete_build
     Resque.enqueue(MagnumCI::ZeusAndApollo, self.id)
+  end
+  
+  def pretty_date
+    days_away = (Date.today - Date.new(created_at.year, created_at.month, created_at.day)).to_i
+    if days_away == 0
+      "Today"
+    elsif days_away == 1
+      "Yesterday"
+    else
+      created_at.strftime("%D")
+    end
   end
 end

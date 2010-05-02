@@ -142,25 +142,53 @@ br {
   padding: 10px;
   margin: 0 0 10px 0;
   background-color: #E6E6E6;
-  height: 80px;
+  min-height: 80px;
 }
 
-#content ul li#project_name {
-  height: 30px;
+#content ul li#project {
+  height: 40px;
+  min-height: 0;
 }
 
 #content ul li div {
-  float: left;
+  width: 450px;
 }
 
 #content ul li p {
   font-size: 1.2em;
-  font-style: italic;
+  margin: 5px 0 0 0;
 }
 
-#content ul li img {
+#content ul li img.status {
   float: right;
   margin: 10px 0 0 0;
+}
+
+#content #build_statuses {
+  margin: 10px 0 0 0;
+  text-align: center;
+  width: 600px;
+}
+
+dl {
+  font-size: 1.2em;
+}
+
+dt {
+	clear: left;
+	float: left;
+	width: 85px;
+	margin: 0 5px 0 0;
+	padding: 5px 0 0 0;
+	font-weight: bold;
+  text-align: right;
+}
+
+dd {
+	float: left;
+	width: 300px;
+	margin: 0;
+	padding: 5px 0 0 0;
 }
 
 /* --- links */
@@ -170,22 +198,15 @@ a {
 
 #content ul li a {
   color: #123060;
-  font-size:2.5em;
-}
-
-#content ul li a:hover {
-  color: #E7E9EC;
-  background-color: #123060;
-  text-decoration: none;
-}
-
-#content a {
-  font-size: 1.5em;
-  color: #DF0D16;
 }
 
 #content a:hover {
   text-decoration: underline;
+}
+
+#content a.control_link {
+  font-size: 1.5em;
+  color: #DF0D16;
 }
 
 #content a#new_project_link {

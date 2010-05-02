@@ -1,16 +1,18 @@
 module ProjectsHelper
-  def last_build_state(project)
-    if project.builds.empty?
-      return 'ferrari.jpg'
-    end
-    if project.builds.last.built?
-      if project.builds.last.passed?
-        return 'ferrari.jpg'
+  def build_statuses(project)
+    result = ""
+    max = project.builds.size < 5 ? project.builds.size : 5
+    project.builds.reverse[0..max].each do |build|
+      if build.built?
+        if build.passed?
+          result += "<a href=/#{project.name}/builds/#{build.id}><img src='/images/tiny_ferrari.jpg' alt='Tiny_ferrari'></a>"
+        else
+          result += "<a href=/#{project.name}/builds/#{build.id}><img src='/images/tiny_cuffs.jpg' alt='Tiny_cuffs'></a>"
+        end
       else
-        return 'cuffs.jpg'
+        result += "<a href=/#{project.name}/builds/#{build.id}><img src='/images/tiny_heli.jpg' alt='Tiny_heli'></a>"
       end
-    else
-      return 'heli.jpg'
     end
+    result
   end
 end

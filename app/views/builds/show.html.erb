@@ -1,12 +1,15 @@
 <ul>
+  <li id='project'><h1><%= @build.project.name.titleize %></h1></li>
   <li>
+    <%= image_tag build_state(@build), :class => "status" %>
     <div>
-      <h2><%= @build.project.name.titleize %></h2>
       <h2><%= @build.name %></h2>
-      <p>Date: <%= @build.created_at.strftime("%D") %></p>
-      <p>Committer: <%= @build.committer %></p>
+      <p>
+        <%= @build.committer %> - <%= @build.pretty_date %>
+        <br/>
+        <%= @build.message %>
+      </p>
     </div>
-    <%= image_tag build_state(@build) %>
   </li>
 </ul>
 <div id='build_output'><%= pretty_print_log(@build.log) %></div>

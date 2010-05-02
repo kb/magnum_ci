@@ -19,6 +19,7 @@ module MagnumCI
         repo = Repo.new("#{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id}")
         @build.name = repo.commits.first.id
         @build.committer = repo.commits.first.committer.name
+        @build.message = repo.commits.first.message
         @build.save
       end
     end
