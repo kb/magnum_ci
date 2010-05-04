@@ -1,7 +1,8 @@
 module ProjectsHelper
   def build_statuses(project)
     result = ""
-    max = project.builds.size < 5 ? project.builds.size : 5
+    status_num = 4
+    max = project.builds.size <= status_num ? project.builds.size : status_num
     project.builds.reverse[0..max].each do |build|
       if build.built?
         if build.passed?
