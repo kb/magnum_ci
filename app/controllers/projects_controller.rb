@@ -71,7 +71,7 @@ class ProjectsController < ApplicationController
     @project.run_build
     respond_to do |format|
       format.html { redirect_to("/#{@project.name}") }
-      format.json { render :text => 'Magnum C.I. is on the job/n' }
+      format.json { render :text => 'Magnum C.I. is on the job' }
     end
   end
 end
