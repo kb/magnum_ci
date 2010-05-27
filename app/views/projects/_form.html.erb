@@ -18,6 +18,10 @@
   <%= f.text_field :keep_build_number %>
 </p>
 <p>
+  <%= f.check_box :bundler, :class => 'checkbox' %>
+  <%= f.label :bundler, "Bundler?", :class => 'checkbox' %>
+</p>
+<p>
   <%= f.label :script, "Script" %>
   <%= f.text_area :script %>
 </p>

@@ -11,7 +11,12 @@ module MagnumCI
       end
     
       def build
-        script = "(cd #{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id} && #{@build.project.script} 2>&1)"
+        if @build.project.bundler?
+          script = "(cd #{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id} && export BUNDLE_GEMFILE=$PWD/Gemfile && #{@build.project.script} 2>&1)"
+        else
+          script = "(cd #{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id} && #{@build.project.script} 2>&1)"
+        end
+        
         IO.popen(script, "r") { |io| @build.log = io.read }
         @build.passed = true if $?.to_i == 0
         @build.save

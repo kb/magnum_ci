@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100311015006
+# Schema version: 20100517014554
 #
 # Table name: projects
 #
@@ -16,6 +16,7 @@
 #  token             :string(255)
 #  ssl               :boolean
 #  room              :string(255)
+#  bundler           :boolean
 #
 
 class Project < ActiveRecord::Base
@@ -42,6 +43,10 @@ class Project < ActiveRecord::Base
 
   def campfire_settings
     { 'account' => self.account, 'token' => self.token, 'use_ssl' => self.ssl }
+  end
+  
+  def bundler?
+    self.bundler ? true : false
   end
 
   private
