@@ -1,7 +1,7 @@
-<%= button_to "Manual Build", { :action => "build", :id => @project }, :id => "build_button" %>
+<%= button_to "Manual Build", build_project_path(@project), :method => :post, :id => 'build_button' %>
 <%= link_to "Edit", "/#{@project.name}/edit", :class => "control_link" %>
 OR
-<%= link_to "Delete Project", project_path(@project), :class => "control_link", :confirm => "Are you sure?", :method => :delete %>
+<%= link_to "Delete Project", project_path(@project), :method => :delete, :class => "control_link", %>
 <ul>
   <li id='project'><h1><%= @project.name.titleize %></h1></li>
   <%= render :partial => "build", :collection => @project.builds.reverse %>

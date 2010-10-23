@@ -18,3 +18,4 @@ spec/fixtures/*
 builds/*
 Gemfile.lock
 .bundle/*
+.idea/

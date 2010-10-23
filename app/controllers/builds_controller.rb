@@ -1,6 +1,6 @@
 class BuildsController < ApplicationController
   before_filter :load_project
-  
+
   def show
     @build = @project.builds.find(params[:id])
     respond_to do |format|
@@ -8,8 +8,8 @@ class BuildsController < ApplicationController
       format.xml { render :xml => @build }
     end
   end
-  
-protected
+
+  protected
   def load_project
     @project = Project.find_by_name(params[:project])
   end

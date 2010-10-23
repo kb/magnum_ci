@@ -1,9 +1,5 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
-describe Build do  
-  it "should create a new instance given valid attributes" do
-    lambda do
-      Build.create!(:log => "test test test test test", :passed => true)
-    end.should change(Build, :count).by(1)
-  end
+describe Build do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

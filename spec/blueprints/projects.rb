@@ -1,0 +1,2 @@
+Project.blueprint do
+end

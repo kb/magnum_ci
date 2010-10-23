@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100326014550
+# Schema version: 20101023140442
 #
 # Table name: builds
 #
@@ -9,15 +9,15 @@
 #  state      :string(50)
 #  committer  :string(50)
 #  log        :text
+#  message    :text
 #  passed     :boolean
 #  created_at :datetime
 #  updated_at :datetime
-#  message    :text
 #
 
 class Build < ActiveRecord::Base
   include AASM
-  
+
   belongs_to :project
 
   aasm_column :state
@@ -53,9 +53,9 @@ class Build < ActiveRecord::Base
   end
 
   def delete_build
-    Resque.enqueue(MagnumCI::ZeusAndApollo, self.id)
+    Resque.enqueue(DeleteBuild, self.id)
   end
-  
+
   def pretty_date
     days_away = (Date.today - Date.new(created_at.year, created_at.month, created_at.day)).to_i
     if days_away == 0

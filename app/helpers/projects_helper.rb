@@ -1,19 +1,17 @@
 module ProjectsHelper
-  def build_statuses(project)
-    result = ""
-    status_num = 4
-    max = project.builds.size <= status_num ? project.builds.size : status_num
-    project.builds.reverse[0..max].each do |build|
-      if build.built?
-        if build.passed?
-          result += "<a href=/#{project.name}/builds/#{build.id}><img src='/images/tiny_ferrari.jpg' alt='Tiny_ferrari'></a>"
-        else
-          result += "<a href=/#{project.name}/builds/#{build.id}><img src='/images/tiny_cuffs.jpg' alt='Tiny_cuffs'></a>"
-        end
+  def max(project)
+    project.builds.size <= 4 ? project.builds.size : 4
+  end
+
+  def build_status(build)
+    if build.built?
+      if build.passed?
+        link_to image_tag('tiny_ferrari.jpg'), "#{build.project.name}/builds/#{build.id}"
       else
-        result += "<a href=/#{project.name}/builds/#{build.id}><img src='/images/tiny_heli.jpg' alt='Tiny_heli'></a>"
+        link_to image_tag('tiny_cuffs.jpg'), "#{build.project.name}/builds/#{build.id}"
       end
+    else
+      link_to image_tag('tiny_heli.jpg'), "#{build.project.name}/builds/#{build.id}"
     end
-    result
   end
 end
