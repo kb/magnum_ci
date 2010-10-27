@@ -1,7 +1,7 @@
 # This task comes from here http://gist.github.com/486161
 # Rake task to launch multiple Resque workers in development/production with simple management included
 
-require 'resque/tasks'    # Require Resque tasks
+require 'resque/tasks' # Require Resque tasks
 
 namespace :workers do
 
@@ -58,6 +58,13 @@ namespace :workers do
   #       in production (on sudden spikes in jobs, etc), just by SSH-ing
   #       to the box and running the "one and only" task.
 
+  desc "Start all Magnum CI queues"
+  task :magnum_ci do
+    `nohup rake workers:start COUNT=1 QUEUE=build > log/workers.log 2>&1 &`
+    `nohup rake workers:start COUNT=2 QUEUE=clone > log/workers.log 2>&1 &`
+    `nohup rake workers:start COUNT=2 QUEUE=delete > log/workers.log 2>&1 &`
+  end
+
   desc "Run and manage group of Resque workers with some default options"
   task :start => :environment do
 
@@ -84,8 +91,8 @@ namespace :workers do
     def kill_worker(pid)
       Process.kill("QUIT", pid)
       puts "Killed worker with PID #{pid}"
-      rescue Errno::ESRCH => e
-        puts " STALE worker with PID #{pid}"
+    rescue Errno::ESRCH => e
+      puts " STALE worker with PID #{pid}"
     end
 
     def kill_workers
@@ -121,7 +128,7 @@ namespace :workers do
     end
 
     # Handle exit
-    trap('INT')  { shutdown }
+    trap('INT') { shutdown }
     trap('QUIT') { shutdown }
     trap('TERM') { shutdown }
 
@@ -142,8 +149,12 @@ namespace :workers do
       # Make sure we have directory for pids
       FileUtils.mkdir_p pid_directory.to_s
       # Create PID files for workers
-      File.open( pid_directory.join("master.pid").to_s, 'w' ) do |f| f.write Process.pid end
-      @pids.each do |pid| File.open( pid_directory.join("worker_#{pid}.pid").to_s, 'w' ) { |f| f.write pid } end
+      File.open(pid_directory.join("master.pid").to_s, 'w') do |f|
+        f.write Process.pid
+      end
+      @pids.each do |pid|
+        File.open(pid_directory.join("worker_#{pid}.pid").to_s, 'w') { |f| f.write pid }
+      end
       # Stay in foreground, if any of our workers dies, we'll get killed so Monit/God etc can come to the resq^Hcue
       Process.wait
     else
@@ -153,7 +164,7 @@ namespace :workers do
   end
 
   desc "Kill ALL workers on this machine"
-  task :kilall do
+  task :killall do
     require 'resque'
     Resque::Worker.all.each do |worker|
       puts "Shutting down worker #{worker}"
