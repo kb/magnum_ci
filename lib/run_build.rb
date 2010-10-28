@@ -9,7 +9,7 @@ class RunBuild
     def build
       @build.run_build!
       if @build.project.bundler?
-        script = "(cd #{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id} && export BUNDLE_GEMFILE=$PWD/Gemfile && #{@build.project.script} 2>&1)"
+        script = "(cd #{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id} && unset GEM_PATH && unset RUBYOPT && unset RAILS_ENV && unset BUNDLE_GEMFILE && #{@build.project.script} 2>&1)"
       else
         script = "(cd #{RAILS_ROOT}/builds/#{@build.project.name}/#{@build.id} && #{@build.project.script} 2>&1)"
       end
