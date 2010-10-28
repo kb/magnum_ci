@@ -13,8 +13,4 @@ A simple Continuous Integration server built on [Rails](http://rubyonrails.org) 
 > $ rake workers:magnum_ci
 
 3. Start Rails Server
-> $ script/server
-
-##Running in Production
-
-1. Capistrano recipe coming soon
+> $ rails s
