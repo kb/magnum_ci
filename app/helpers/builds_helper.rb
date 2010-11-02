@@ -13,7 +13,7 @@ module BuildsHelper
 
   def pretty_print_log(log)
     return unless log
-    log.gsub("\e[0m", '</span>').
+    raw(log.gsub("\e[0m", '</span>').
             gsub("\e[31m", '<span class="color31">').
             gsub("\e[32m", '<span class="color32">').
             gsub("\e[33m", '<span class="color33">').
@@ -21,6 +21,6 @@ module BuildsHelper
             gsub("\e[35m", '<span class="color35">').
             gsub("\e[36m", '<span class="color36">').
             gsub("\e[37m", '<span class="color37">').
-            gsub(/\n/, '<br>')
+            gsub(/\n/, '<br>'))
   end
 end
