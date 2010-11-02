@@ -15,7 +15,6 @@ coverage/*
 public/system/**/*
 test/*
 spec/fixtures/*
-builds/*
-Gemfile.lock
+builds/**/*
 .bundle/*
 .idea/
