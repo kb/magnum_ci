@@ -1,10 +1,9 @@
 <li>
   <h1><%= link_to project.name.titleize, "/#{ project.name }", :class => "project_name" %></h1>
 
-  <div id="build_statuses">
+  <div class="build_statuses">
     <% project.builds.reverse[0..max(project)].each do |build| %>
       <%= build_status(build) %>
     <% end %>
   </div>
 </li>
-<div></div>
