@@ -7,7 +7,7 @@ MagnumCi::Application.routes.draw do
   end
 
   # URL for the post-recieve hook
-#  match '/build.:format' => 'projects#build', :via => [:post]
+  match '/build.:format' => 'projects#build', :via => [:post]
 
   # Avoid resource generated routes for some pretty-urls
   match '/:project', :to => 'projects#show'
