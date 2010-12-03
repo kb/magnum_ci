@@ -11,7 +11,7 @@ module ProjectsHelper
         link_to image_tag('tiny_cuffs.jpg'), "#{build.project.name}/builds/#{build.id}"
       end
     else
-      link_to image_tag('tiny_heli.jpg'), "#{build.project.name}/builds/#{build.id}"
+      link_to image_tag('tiny_heli.gif'), "#{build.project.name}/builds/#{build.id}"
     end
   end
 end

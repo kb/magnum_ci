@@ -7,7 +7,7 @@ module BuildsHelper
         return 'cuffs.jpg'
       end
     else
-      return 'heli.jpg'
+      return 'heli.gif'
     end
   end
 
