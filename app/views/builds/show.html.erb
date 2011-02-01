@@ -1,9 +1,11 @@
 <ul>
-  <li id='project'><h1><%= @build.project.name.titleize %></h1></li>
+  <li id='project'>
+    <h1><%= link_to @build.project.name.titleize, "/#{ @build.project.name }", :class => "project_name" %></h1></li>
   <li>
     <%= image_tag build_state(@build), :class => "status" %>
     <div>
       <h2><%= @build.name %></h2>
+
       <p>
         <%= @build.committer %> - <%= @build.pretty_date %>
         <br/>
