@@ -1,1 +1,1 @@
-rvm ruby-1.9.2@magnum_ci
+rvm use ruby-1.9.2@magnum_ci --create
