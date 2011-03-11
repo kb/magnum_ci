@@ -62,6 +62,7 @@ All contributions are welcome. Just fork the code, ensure your changes include a
 Created by Kyle Bolton
 
 Additional contributors
+
 * Andrew Vargo
 * Jeremy Durham
 
