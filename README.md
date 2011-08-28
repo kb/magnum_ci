@@ -40,7 +40,7 @@ A <del>strike</del> means its done!
 * Remove cucumber
 * Added rspec tests for view/model/controller/helper
 * Fix Magnum rendered HTML in output logs
-* Seperate status area with order of queued builds
+* Separate status area with order of queued builds
 * Ask Fisher to restyle forms
 * Submitted time, and finished time. and/or elapsed time
 * Delta timer notifier for when builds go over average build time
