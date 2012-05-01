@@ -60,9 +60,9 @@ namespace :workers do
 
   desc "Start all Magnum CI queues"
   task :magnum_ci do
-    `nohup rake workers:start COUNT=1 QUEUE=build > log/workers.log 2>&1 &`
-    `nohup rake workers:start COUNT=2 QUEUE=clone > log/workers.log 2>&1 &`
-    `nohup rake workers:start COUNT=2 QUEUE=delete > log/workers.log 2>&1 &`
+    `nohup rake workers:start COUNT=1 VVERBOSE=1 QUEUE=build --trace > log/workers.log 2>&1 &`
+    `nohup rake workers:start COUNT=2 VVERBOSE=1 QUEUE=clone --trace > log/workers.log 2>&1 &`
+    `nohup rake workers:start COUNT=2 VVERBOSE=1 QUEUE=delete --trace > log/workers.log 2>&1 &`
   end
 
   desc "Run and manage group of Resque workers with some default options"
