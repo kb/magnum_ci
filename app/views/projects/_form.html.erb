@@ -23,6 +23,9 @@
   <%= f.text_area :script %>
 </p>
 <p>
+	<hr>
+</p>
+<p>
   <%= f.check_box :campfire, :class => 'checkbox' %>
   <%= f.label :campfire, "Campfire Notifications", :class => 'checkbox' %>
 </p>
@@ -40,6 +43,24 @@
 </p>
 <p>
   <%= f.check_box :ssl, :class => 'checkbox' %>
-  <%= f.label :ssl, "SSL?", :class => 'checkbox' %>
+  <%= f.label :ssl, "Campfire requires SSL?", :class => 'checkbox' %>
 </p>
-
+<p>
+	<hr>
+</p>
+<p>
+  <%= f.check_box :irc, :class => 'checkbox' %>
+  <%= f.label :irc, "IRC Notifications", :class => 'checkbox' %>
+</p>
+<p>
+  <%= f.label :channel, "Channel (example, #projectname)" %>
+  <%= f.text_field :channel %>
+</p>
+<p>
+  <%= f.label :ircserver, "IRC Server" %>
+  <%= f.text_field :ircserver %>
+</p>
+<p>
+  <%= f.label :ircnick, "IRC Nick (example, magnum_ci)" %>
+  <%= f.text_field :ircnick %>
+</p>
